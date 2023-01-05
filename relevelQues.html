@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        /*has N rows and N columns. The element in the ith row and jth column is the product of the ith element of array A and jth element of array B.
+
+Now they want to know the GCD(Greatest Common Divisor) of all elements of array C. Help them in finding it!
+
+
+
+Input Format
+
+
+
+First line contains a single integer denoting N.
+Next line contains N space separated integers denoting elements of array A.
+Next line contains N space separated integers denoting elements of array B.
+
+
+Output Format
+
+
+
+Print the GCD(Greatest Common Divisor) of all elements of array C.
+
+
+Constraints
+
+
+
+1<=N<=105
+1<=Ai, Bi<=105
+
+
+Sample Input 1
+3
+2 4 8
+1 2 3
+Sample Output 1
+2
+Explanation of Sample 1
+
+Array C = [2*1 2*2 2*3] = [2 4 6]
+[4*1 4*2 4*3] [4 8 12]
+[8*1 8*2 8*3] [8 16 24]
+Now GCD of all elements = GCD(2,4,6,4,8,12,8,16,24) = 2
+*/
+
+
+        function gcd(C){
+            var counter = 2
+            for(i=0;i<C.length;i++){
+                if(C[i]%counter != 0){
+                    counter++
+                }
+            }
+            console.warn(counter)
+        }
+
+        function solve(A, B, n) {
+            var C = []
+            counter = 0
+            for (let i = 0; i <= A.length - 1; i++) {
+
+                for (let j = 0; j <= B.length - 1; j++) {
+                    C[counter] = A[i] * B[j]
+                    counter++
+                }
+            }
+            console.warn(C)
+            gcd(C)
+        }
+        var n = 3
+        var A = [3, 6, 9]
+        var B = [2, 4, 6]
+        solve(A, B, n)
+
+    </script>
+</body>
+
+</html>

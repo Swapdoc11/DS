@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Insertion Sort</h1>
+
+    <script>
+
+        //  SORTING BY FOR LOOP
+        var arr = [69, 85, 47, 85, 32, 68, 21, 47, 69]
+        var insertionSort = function (arr) {
+            for (let i = 1; i < arr.length; i++) {
+
+                var temp = arr[i]
+                let j = 0
+                for (j = i - 1; j >= 0 && arr[j] > temp; j--) {
+
+                    arr[j + 1] = arr[j]
+
+                }
+                arr[j + 1] = temp
+
+            }
+            console.warn(arr)
+        }
+       // SORTING BY WHILE LOOP
+        var round2 = function (arr) {
+            for (let i = 1; i < arr.length; i++) {
+                var temp = arr[i]
+                var j = i - 1
+                while (j >= 0 && arr[j] > temp) {
+                    arr[j + 1] = arr[j]
+                    j--
+                }
+                arr[j + 1] = temp
+            }
+            console.log(arr)
+        }
+        insertionSort(arr)
+       // round2(arr)
+
+    </script>
+</body>
+
+</html>

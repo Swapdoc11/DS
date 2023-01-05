@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Node {
+            constructor(element) {
+                this.element = element
+                this.next = null
+            }
+        }
+        class Linklist {
+            constructor() {
+                this.head = null
+                this.size = 0
+            }
+            add(element) {
+                var node = new Node(element)
+                var current;
+
+                if (this.head == null) {
+                    this.head = node;
+                } else {
+                    current = this.head
+                    while (current.next) {
+                        current = current.next
+                    }
+                    current.next = node
+                }
+                this.size++
+            }
+            insertAt(element, pos) {
+                if (pos > this.size && pos < 0) {
+                    console.log("Enter valid position....")
+                } else {
+                    var node = new Node(element)
+                    var curr, prev
+                    curr = this.head
+                    if (pos == 0) {
+                        console.warn(this.head)
+                        node.next = this.head
+                        console.warn(node);
+                        this.head = node
+                    } else {
+                        curr = this.head
+                        var it = 0
+                        while (it < pos) {
+                            it++
+                            prev = curr
+                            curr = curr.next
+                        }
+                        node.next = curr
+                        prev.next = node
+                    }
+                    this.size++
+                }
+            }
+        }
+        var link = new Linklist()
+       
+        link.add(1456)
+        link.insertAt(150,0)
+        console.warn(link)
+
+    </script>
+</body>
+
+</html>

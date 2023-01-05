@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>This is Data Structure Practice</h2>
+    <input type="text" name="" id="insEle">
+    <input type="button" onClick=setInArray() value="Set Array">
+    <input type="button" onClick=deleteInArray() value="Delete in Array">
+    <script>
+        var arr = [10, 20, 30, 40, 50];
+        function setInArray() {
+
+
+            var position = 3
+            var ele = parseInt(document.getElementById('insEle').value);
+
+            for (var i = arr.length - 1; i >= position; i--) {
+
+                if (i >= position) {
+                    arr[i + 1] = arr[i];
+                    if (i == position) {
+                        arr[i] = ele;
+                    }
+
+                }
+            }
+            console.log(arr);
+        }
+
+        function deleteInArray() {
+            var position = 2;
+            for (let i = position; i < arr.length-1; i++) {
+
+                if (i <= arr.length) {
+                    arr[i] = arr[i+1]
+                }
+            }
+            arr.length = arr.length-1
+            console.log(arr);
+        }
+
+    </script>
+</body>
+
+</html>

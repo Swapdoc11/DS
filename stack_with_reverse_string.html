@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" name="" id="ele" placeholder="Push Elenment in Stack"><br /><br />
+    <input type="text" name="" id="str" placeholder="Enter String tobe Reverse"><br /><br />
+    <button onclick="push()">PUSH</button><br /><br />
+    <button onclick="pop()">POP</button><br /><br />
+    <button onclick="disp()">DISPLAY</button><br /><br />
+    <button onclick="revString()">STRING REVERSE</button>
+    <script>
+        var stack = []
+        var position = 0
+        var rev = ''
+        function push() {
+            if (position <= 5) {
+                ele = document.getElementById('ele').value
+                stack[position] = ele
+                position += 1
+                disp()
+                document.getElementById('ele').value = ''
+            } else {
+                console.warn("stack is full")
+            }
+        }
+        function pushrev(ele) {  
+            /* JAVASCRIPT doesn't support 
+               function overloading we 
+               need to defing New one  */
+
+           for(let i=0;i<ele.length;i++){
+                stack[position] = ele[i]
+                position += 1
+            }
+        }
+        function pop() {
+
+            if (position == 0) {
+                console.warn("stack is empty")
+            } else {
+                position -= 1;
+                stack.length = position;
+                disp()
+            }
+
+        }
+        function poprev() {
+
+           for(let i=stack.length-1;i>=0;i--){
+                rev += stack[i]
+                position -= 1;
+                stack.length = position;
+           }
+           return rev
+
+        }
+        function revString() {
+            var str = document.getElementById('str').value.split('')
+            pushrev(str)
+            console.clear()
+            console.warn(poprev())
+            //console.warn(stack)
+        }
+        function disp() {
+            console.clear()
+            for (let i = 0; i <= stack.length - 1; i++) {
+                console.warn(stack[i])
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>

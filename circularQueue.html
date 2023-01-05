@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Circular Queue</h1>
+    <button onclick="dequeue()">DEQUEUE</button>
+    <script>
+        var queue = [],
+            //use queue.length for current size
+            maxSize = 5,
+            front = -1,
+            rear = -1
+        var no = parseInt( 2.3)
+   
+        function addElement(ele) {
+            queue[rear] = ele
+            rear++
+        }
+
+        function enqueue(ele) {
+            if (queue.length < maxSize) {
+                addElement(ele)
+            }
+            if (rear == maxSize) {
+                rear = 0
+            }
+
+
+            /* if (rear < maxSize) {
+                queue[rear] = ele
+                rear++
+            } else {
+                rear = 0
+            }*/
+        }
+        function dequeue() {
+            if (front != rear) {
+                queue[front + 1] = undefined
+                front++;
+            } else {
+                console.warn('Queue is Empty....')
+            }
+
+        }
+        function disp() {
+            console.warn(queue)
+        }
+
+    </script>
+</body>
+
+</html>

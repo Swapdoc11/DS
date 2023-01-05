@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*  Binary Search Simple Functional Approch  */
+        var arr = [10, 20, 30, 40, 50, 60, 70, 80, 90]
+        var start = 0
+        var end = len = arr.length
+        var ele = 91
+        
+        let i = 0
+
+        while ( i<=len) {
+            if (start > end) {
+                console.warn('Not Found....')
+                break
+            }
+            mid = parseInt((start + end) / 2)
+            console.log('Start = '+start+' mid = '+mid+' end = '+end+' i '+i)
+            if (arr[mid] === ele) {
+                console.warn('element found at ' + mid + ' Position')
+                break;
+            }
+            if (arr[mid] > ele) {
+                end = mid - 1
+            } else {
+                start = mid + 1
+            }
+            i++
+            
+        }
+    </script>
+</body>
+
+</html>

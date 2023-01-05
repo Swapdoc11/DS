@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var cal = (a, b, c) => {
+            var a = new Promise((resolve, reject) => {
+                if (a > 0 && b > 0 && c > 0) {
+                    resolve(a + b + c)
+                } else {
+                    reject("No in not positive")
+                } 
+            })
+            a.then((data) => {
+                return data + 1
+            }).then((data) => {
+                console.log(data);
+            }).catch((err) => { console.log(err); })
+        }
+        cal(1, 2, 3)
+        
+        var acal = async (a, b, c) => {
+           
+            var g
+            await setTimeout(()=>{
+                g =  a + b + c;
+                console.log(g);
+            },3000)
+            
+            
+        }
+        console.log('Start');
+        acal(5, 6, 9)
+        console.log('End');
+    </script>
+</body>
+
+</html>

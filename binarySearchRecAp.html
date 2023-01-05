@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+            find(80)
+
+            [20,30,40,50,60,70,80,90]
+            [           ][          ]    mid = 50
+                        mid            
+            [     ][    ][    ][    ]            
+        */
+        var binarySearchRecAp = function (start, end, ele, arr) {
+            if (start > end) {
+                return false
+            }
+            let mid = parseInt((start + end) / 2)
+            if (arr[mid] === ele) {
+               
+                 console.warn('element found at '+mid+' position')
+            }
+            if (arr[mid] > ele) {
+                binarySearchRecAp(start, mid - 1, ele, arr)
+            } else {
+                binarySearchRecAp(mid + 1, end, ele, arr)
+            }
+        }
+
+        var arr = [20, 30, 40, 50, 55,56, 60, 66, 67, 70, 74, 80, 90]
+        var result = binarySearchRecAp(0, arr.length, 74, arr)
+        result ? console.warn(result) : console.warn("Not Found")
+
+
+
+    </script>
+</body>
+
+</html>

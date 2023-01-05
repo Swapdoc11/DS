@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="ele">
+    <button onclick="inqueue()">enqueue</button>
+    <script>
+       var queue = []
+        var front = 0
+        var rear = 0
+        var maxSize = 5
+        function inqueue() {
+            if (queue.length < maxSize) {
+                ele = document.getElementById('ele').value
+                queue[rear] = ele
+                rear++
+                document.getElementById('ele').value = ''
+            } else {
+                console.warn('Queue Limit exceed')
+            }
+        }
+        function dequeue() {
+            if (queue.length != 0) {
+                for (i = 0; i <= rear; i++) {
+                    queue[i] = queue[i + 1]
+                }
+                rear--
+                queue.length = rear
+            } else {
+                console.warn('Queue is Empty')
+            }
+        }
+        function dequeue2(){
+            queue[front] = undefined
+            front++
+        }
+        function disp() {
+            console.warn(queue)
+        }
+
+
+
+
+        
+
+
+    </script>
+</body>
+
+</html>
